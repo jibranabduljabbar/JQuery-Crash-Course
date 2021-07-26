@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery Crash Course</title>
+    <style>
+        #tog,
+        #slide,
+        #animate,
+        #dom,
+        #inptext,
+        #chan,
+        #remove,
+        #togclas,
+        #addtodo,
+        #add,
+        #css {
+            padding: 10px;
+            border: none;
+            width: 200px;
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        #closeall{
+            padding: 10px;
+            background-color: red;
+            font-weight: bold;
+            color: white;
+            font-size: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            border: none;
+            width: 200px;
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a{
+            padding: 20px;
+            border: none;
+            width: 250px;
+            background-color: white;
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .close{
+            padding: 10px;
+            background-color: red;
+            font-weight: bold;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            border: none;
+            width: 100px;
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+            
+        }
+
+        .edit{
+            padding: 10px;
+            background-color: green;
+            font-weight: bold;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            border: none;
+            width: 100px;
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+            
+        }
+
+        #orderlist{
+background-color: white;
+color: black;
+padding: 10px;
+/* margin: 10px; */
+        }
+        .list{
+            background-color: black;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        img{
+            width: 200px;
+            height: 400px;
+        }
+
+        #img,
+        #get,
+        #post {
+            padding: 10px;
+            border: none;
+            width: 250px;
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .main {
+            color: wheat;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: bold;
+            margin: 30px;
+            font-style: italic;
+            box-shadow: 0px 0px 8px 8px grey;
+            padding: 10px;
+        }
+
+        body {
+            text-align: center;
+            padding: 50px;
+            margin-top: 10px;
+            font-size: large;
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+            justify-content: center;
+            align-items: center;
+            word-spacing: 1px;
+            letter-spacing: 1px;
+
+        }
+
+        h1 {
+            background-color: white;
+            color: black;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: underline black;
+            /* line-height: 10px; */
+            padding: 10px;
+            margin-top: -50px;
+            margin-bottom: 100px;
+        }
+
+        input {
+            /* border: none; */
+            width: 220px;
+            padding: 10px;
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        textarea {
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            padding-top: 145px;
+        }
+
+        .wiki {
+            color: wheat;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: bold;
+            font-style: italic;
+            box-shadow: 0px 0px 8px 8px grey;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Learning JQuery</h1>
+
+
+    <button id="togclas">!...Toggle Class...!</button>
+
+    <br>
+    <br>
+
+    <p class="PeraClass">💚 !...This Is One. Peragraph...! 💚</p>
+    <p>💛 !...This Is Two. Peragraph...! 💛</p>
+    <p id="PeraID">💙 !...This Is Thre Peragraph...! 💙</p>
+    <p>❤️ !...This Is Four Peragraph...! ❤️</p>
+    <p class="PeraClass">💜 !...This Is Five Peragraph...! 💜</p>
+
+    <br>
+
+    <button id="tog">!...Toggle...!</button>
+    <button id="slide">!...Slides...!</button>
+    <button id="animate">!...Animate...!</button>
+    <button id="dom">!...DOM Changes...!</button>
+    <button id="inptext">!..Input TextArea..!</button>
+
+    <br>
+    <br>
+    <br>
+
+    <button id="add">!..Add Class..!</button>
+    <button id="remove">!..Remove Class..!</button>
+
+
+    <br>
+    <br>
+    <br>
+
+    <div id="wiki">
+        Example Text: Oryzomys dimidiatus, also known as the Nicaraguan oryzomys, Thomas's rice rat, or the Nicaraguan
+        rice rat, is a rodent in the genus Oryzomys of the family Cricetidae. It is known from only three specimens, all
+        collected in southeastern Nicaragua (range pictured) since 1904. Placed in Nectomys upon its discovery, it was
+        later classified in its own subgenus of Oryzomys and finally recognized as closely related to other species now
+        placed in Oryzomys, including the marsh rice rat and Oryzomys couesi, which occurs in the same region. With a
+        head and body length of 118 to 128 mm (4.6 to 5.0 in), O. dimidiatus is a medium-sized rice rat. The upperparts
+        are gray-brown and the underparts are grayish, not buffy as in O. couesi. The tail is only slightly darker above
+        than below. All three specimens were caught near water and the species may be semiaquatic, spending some time in
+        the water. There is currently not enough data to make a proper assessment of its conservation status. (This
+        article is part of a featured topic: Oryzomys.)
+    </div>
+
+    <br>
+    <br>
+
+    <button id="chan">!...Change Status...!</button>
+
+    <br>
+    <br>
+    <br>
+
+    <input type="text" value="Enter Your Value: " id="inp">
+
+    <br>
+
+    <br>
+
+    <br>
+
+    <textarea id="ta" cols="29" rows="10">This Is Your Value My Text Area...!</textarea>
+
+    <br>
+    <br>
+    <br>
+
+    <button id="css">!...Apply CSS...!</button>
+
+    <br>
+    <br>
+    <br>
+
+    <p id="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem sint dicta voluptates beatae?
+        Obcaecati reprehenderit placeat consequuntur quasi eum quidem incidunt? Autem consequatur et suscipit fugiat?
+        Unde temporibus perspiciatis ipsam!</p>
+
+    <br>
+    <br>
+    <br>
+
+    <a id="a" href="https://github.com/jibranabduljabbar" target="_blank">Github</a>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    Enter your name: <input type="text">
+
+    <br>
+    <br>
+
+    <p>Keypresses: <span>0</span></p>
+
+    <br>
+    <br>
+    <br>
+
+    <button id="get">!...Get Data In JQuery...!</button>
+
+    <br>
+    <br>
+
+    <button id="post">!...Post Data In JQuery...!</button>
+
+    <br>
+    <br>
+    <br>
+
+    <img src="./Media/1.jpg" alt="JQuery Example Image">
+
+    <br>
+    <br>
+    <br>
+
+    <button id="img">!...Change Image...!</button>
+   
+    <br>
+    <br>
+    <br>
+
+    <div id="trigger">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam quis possimus doloremque error soluta rerum ipsum quos aliquam! Quasi numquam itaque temporibus a reprehenderit nostrum explicabo corporis distinctio fuga quos.
+        </p>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+<!-- // *) Using JQuery Create a TODO AppliCation...!
+
+     // *) To-Do List...!
+
+     // *) Let's create a To-Do list project using the concepts we have learned. The To-Do list will be able to add new items to a list, as well as remove existing items.
+
+     // *) First, we create the HTML...! -->
+
+     <h1>My To-Do List</h1>
+
+     <br>
+
+     <input type="text" id="inptodo" placeholder="New item...">
+
+     <br>
+     <br>
+     <br>
+
+     <button id="addtodo">Add</button>
+     <br>
+     <br>
+     <br>
+     <button id="closeall">[></button>
+
+     <br>
+     <br>
+     <br>
+
+     <ol id="orderlist">
+
+     </ol>
+
+     <br>
+     <br>
+     <br>
+
+<!-- *) Drop-Down Menu: -->
+
+<!-- *) Let's create a simple drop-down menu that will open upon clicking on the menu   item. -->
+
+    <div class="menu">
+        <div id="item">Drop-Down</div>
+        <br>
+        <br>
+        <div id="submenu">
+            <a href="#">Link 1</a>
+            <br>
+            <br>
+            <a href="#">Link 2</a>
+            <br>
+            <br>
+            <a href="#">Link 3</a>
+        </div>
+    </div>
+
+</body>
+
+<script src="Js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+</script>
+<script src="Js/JQuery.Js"></script>
+
+</html>
